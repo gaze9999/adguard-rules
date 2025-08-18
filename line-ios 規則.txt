@@ -1,0 +1,57 @@
+# ================================
+# LINE App 強力廣告封鎖 (iOS DNS)
+# 更新：2025-08-18
+# ================================
+
+# === LINE 內建廣告/追蹤 API ===
+ads.line.me
+ad.line.me
+ad-api.line.me
+ad-analytics.line.me
+adservice.line-apps.com
+obs.line-apps.com
+
+# === LINE VOOM (短影片 / 動態牆) ===
+voom.line.me
+api.voom.line.me
+static-voom.line.me
+
+# === LINE Today (新聞/資訊流廣告) ===
+today.line.me
+api.today.line.me
+img.today.line.me
+news.line.me
+
+# === LINE Timeline / Activity feed ===
+timeline.line.me
+api.timeline.line.me
+event.line.me
+
+# === LINE Store 推薦 Banner / Promotion ===
+store.line.me/promotion
+store.line.me/ads
+promotion.line.me
+
+# === LINE Pay/Wallet 推播廣告 ===
+linewallet.line.me
+wallet-ad.line.me
+pay.line.me/ads
+bank.line.me/ads
+
+# === 第三方廣告/追蹤常見 SDK (LINE App 內嵌) ===
+adservice.google.com
+googleads.g.doubleclick.net
+pagead2.googlesyndication.com
+securepubads.g.doubleclick.net
+static.doubleclick.net
+ads.yahoo.com
+app-measurement.com
+googletagmanager.com
+googletagservices.com
+ads-twitter.com
+analytics.twitter.com
+criteo.com
+rubiconproject.com
+adnxs.com
+adsrvr.org
+pubmatic.com

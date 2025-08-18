@@ -1,0 +1,40 @@
+! ================================
+! LINE App 廣告通用阻擋
+! 更新：2025-08-18
+! ================================
+
+! === 1) 通用廣告 API 端點 ===
+||line.me^*ad*$important
+||line.me^*ads*$important
+||line-apps.com^*ad*$important
+||line-apps.com^*ads*$important
+||naver.jp^*ad*$important
+||naver.jp^*ads*$important
+
+! === 2) Banner / Promotion / Tracking ===
+||line.me^*banner*$important
+||line.me^*promotion*$important
+||line.me^*track*$important
+||line-apps.com^*banner*$important
+||line-apps.com^*promotion*$important
+||line-apps.com^*track*$important
+
+! === 3) 前貼片 / VOOM / Today feed 廣告 ===
+||voom.line.me^*ad*$important
+||today.line.me^*ad*$important
+||timeline.line.me^*ad*$important
+
+! === 4) 元素級 CSS 過濾（常見 class/id） ===
+##div[id*="ad"]
+##div[class*="ad"]
+##div[class*="ads"]
+##div[class*="sponsored"]
+##div[class*="promotion"]
+##div[class*="banner"]
+##section[class*="ad"]
+##section[class*="banner"]
+
+! === 5) 常見透明 tracking pixel (避免封鎖正常圖片) ===
+##img[width="1"][height="1"]
+##img[width="0"], ##img[height="0"]
+##img[src*="pixel"], ##img[src*="beacon"]
