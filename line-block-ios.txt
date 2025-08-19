@@ -1,25 +1,26 @@
-# ================================
-# LINE App 廣告封鎖 (iOS DNS)
-# 更新：2025-08-19
-# ================================
+! ================================
+! LINE App 廣告封鎖 (iOS DNS)
+! Version: 1.1.0
+! 更新：2025-08-19
+! ================================
 
-# ===== LINE 官方廣告／量測 =====
+! ===== LINE 官方廣告／量測 =====
 ads.line.me
 ad.line.me
 ad-api.line.me
 ad-analytics.line.me
 
-# ===== Today / VOOM / Timeline（資訊流與短影片）=====
+! ===== Today / VOOM / Timeline（資訊流與短影片）=====
 today.line.me
 voom.line.me
 timeline.line.me
 
-# ===== 錢包／支付廣告 =====
+! ===== 錢包／支付廣告 =====
 linewallet.line.me
 wallet-ad.line.me
 pay.line.me
 
-# ===== 常見第三方廣告／量測（LINE 內嵌 SDK）=====
+! ===== 常見第三方廣告／量測（LINE 內嵌 SDK）=====
 adservice.google.com
 googleads.g.doubleclick.net
 pagead2.googlesyndication.com
