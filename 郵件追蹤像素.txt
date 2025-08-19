@@ -1,51 +1,9 @@
 ! ============================================
-! 郵件追蹤像素精準阻擋清單
-! 更新：2025-08-18
+! 郵件／EDM 追蹤像素精準阻擋（含 CDN）
+! 更新：2025-08-19
 ! ============================================
 
-! --- 以下為「通用阻擋規則」 ---
-##img[width="1"][height="1"]
-##img[width="1px"][height="1px"]
-##img[width="0"], ##img[height="0"]
-##img[style*="width:1px"][style*="height:1px"]
-##img[style*="width: 1px"][style*="height: 1px"]
-##img[style*="width:0px"], ##img[style*="height:0px"]
-
-##img[style*="display:none"]
-##img[style*="opacity:0"]
-##img[style*="visibility:hidden"]
-##img[style*="position:absolute"][style*="-9999px"]
-##img[style*="left:-9999px"]
-##img[style*="clip:"], ##img[style*="clip-path:"]
-##img[aria-hidden="true"][width="1"]
-##img[aria-hidden="true"][height="1"]
-
-##img[src^="data:image/"][width="1"][height="1"]
-##img[src^="data:image/gif;base64,R0lGODlhAQABAIA"]
-
-##img[src*="pixel.gif"], ##img[src*="pixel.png"]
-##img[src*="/pixel?"], ##img[src*="/pixel&"]
-##img[src*="beacon"], ##img[src*="/beacon?"]
-##img[src*="/open."], ##img[src*="/open?"]
-##img[src*="/email/open"], ##img[src*="/track/open"]
-##img[src*="/s.aspx?"], ##img[src*="/s.aspx&"]
-
-##[style*="background:url("][style*="1x1"]
-##[style*="background:url("][style*="pixel."]
-##[style*="background-image:"][style*="1x1"]
-##[style*="background-image:"][style*="pixel."]
-
-##img.tracking-pixel
-##img.email-open
-##img.pixel
-##img.beacon
-
-||/1x1.gif$image
-||/1x1.png$image
-||/clear.gif$image
-||/clear.png$image
-||/transp.gif$image
-
+! ========== A. 通用追蹤像素端點 ==========
 ||*/open.$image
 ||*/open?*$image
 ||*/email/open*$image
@@ -54,48 +12,84 @@
 ||*/beacon*$image
 ||*/pixel*$image
 
+! ========== B. 通用像素檔名 ==========
+||/1x1.gif$image
+||/1x1.png$image
+||/clear.gif$image
+||/clear.png$image
+||/transp.gif$image
+||/pixel.gif$image
+||/pixel.png$image
 
-! ============================================
-! 台灣銀行常見追蹤像素端點
-! ============================================
-||edm.taishinbank.com.tw/*s.aspx?*$image
+! ========== C. CDN 常見追蹤關鍵字 ==========
+||*/cdn/*pixel*$image
+||*/cdn/*beacon*$image
+||*/cdn/*track*$image
+||*/cdn/*open*$image
+||cdn.*/pixel*$image
+||cdn.*/beacon*$image
+||cdn.*/track*$image
+||cdn.*/open*$image
+
+! ---- Cloudfront ----
+||*.cloudfront.net/*pixel*$image
+||*.cloudfront.net/*beacon*$image
+||*.cloudfront.net/*track*$image
+||*.cloudfront.net/*open*$image
+
+! ---- Akamai ----
+||*.akamaized.net/*pixel*$image
+||*.akamaized.net/*beacon*$image
+||*.akamaized.net/*track*$image
+||*.akamaized.net/*open*$image
+
+! ---- Fastly ----
+||*.fastly.net/*pixel*$image
+||*.fastly.net/*beacon*$image
+||*.fastly.net/*track*$image
+||*.fastly.net/*open*$image
+
+! ---- Cloudflare ----
+||*.cloudflare.net/*pixel*$image
+||*.cloudflare.net/*beacon*$image
+||*.cloudflare.net/*track*$image
+||*.cloudflare.net/*open*$image
+
+! ========== D. 電商常見追蹤像素 ==========
+||images-*.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
+||amazon.co.jp/gp/r.html*$image
+||amazon.com/gp/r.html*$image
+||rover.ebay.com/*1x1*$image
+||ebay.com/*/pixel*$image
+||emagazine.rakuten.co.jp/*open*$image
+||rakuten.co.jp/*/pixel*$image
+||shopping.yahoo.co.jp/*/open*$image
+||shopping.yahoo.co.jp/*/track*$image
+||buy.yahoo.com.tw/*/open*$image
+||buy.yahoo.com.tw/*/track*$image
+||edm.pchome.com.tw/*open*$image
+||edm.pchome.com.tw/*pixel*$image
+||edm.momoshop.com.tw/*open*$image
+||edm.momoshop.com.tw/*pixel*$image
+||edm.shopee.tw/*open*$image
+||edm.shopee.tw/*pixel*$image
+||edm.shopee.jp/*open*$image
+||edm.shopee.jp/*pixel*$image
+||edm.mercari.jp/*open*$image
+||edm.zozo.jp/*open*$image
+
+! ========== E. 銀行 EDM 常見追蹤像素 ==========
+||mhurcv.taishinbank.com.tw/Open.aspx^$image
+||mhurcv.taishinbank.com.tw/taishin_a/s.aspx^$image
 ||edm.esunbank.com.tw/*s.aspx?*$image
 ||edm.ctbcbank.com/*s.aspx?*$image
 ||edm.cathaybk.com.tw/*s.aspx?*$image
 ||edm.firstbank.com.tw/*s.aspx?*$image
-||edm.skbank.com.tw/*s.aspx?*$image
+||edm.hncb.com.tw/*s.aspx?*$image
 ||edm.megabank.com.tw/*s.aspx?*$image
 ||edm.bot.com.tw/*s.aspx?*$image
-
-! 日本銀行 (常見於日系 EDM 信件)
-||edm.mizuhobank.co.jp/*s.aspx?*$image
+||edm.bk.mufg.jp/*s.aspx?*$image
 ||edm.smbc.co.jp/*s.aspx?*$image
+||edm.mizuhobank.co.jp/*s.aspx?*$image
 ||edm.rakuten-bank.co.jp/*s.aspx?*$image
-||edm.yuchobank.jp/*s.aspx?*$image
-||edm.shinseibank.com/*s.aspx?*$image
-
-! ============================================
-! 電商平台常見追蹤像素端點
-! ============================================
-! Amazon
-||images-na.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
-||images-fe.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
-||amazon.co.jp/gp/r.html*$image
-||amazon.com/gp/r.html*$image
-
-! eBay
-||rover.ebay.com/*1x1*$image
-||ebay.com/*/pixel*$image
-
-! Rakuten 樂天
-||emagazine.rakuten.co.jp/*open*$image
-||rakuten.co.jp/*/pixel*$image
-
-! Yahoo! / LINE 購物
-||mail.yahoo.co.jp/*/track/open*$image
-||linecorp.com/*/track/open*$image
-
-! AliExpress / Shein
-||aliexpress.com/*beacon*$image
-||shein.com/*track*$image
-||shein.com/*open*$image
+||edm.resonabank.co.jp/*s.aspx?*$image

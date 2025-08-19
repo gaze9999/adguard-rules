@@ -1,40 +1,27 @@
 ! ================================
 ! LINE App 廣告通用阻擋
-! 更新：2025-08-18
+! 更新：2025-08-19
 ! ================================
 
-! === 1) 通用廣告 API 端點 ===
-||line.me^*ad*$important
-||line.me^*ads*$important
-||line-apps.com^*ad*$important
-||line-apps.com^*ads*$important
-||naver.jp^*ad*$important
-||naver.jp^*ads*$important
+! ===== LINE 官方廣告／量測 API =====
+||ads.line.me^
+||ad.line.me^
+||ad-api.line.me^
+||ad-analytics.line.me^
 
-! === 2) Banner / Promotion / Tracking ===
-||line.me^*banner*$important
-||line.me^*promotion*$important
-||line.me^*track*$important
-||line-apps.com^*banner*$important
-||line-apps.com^*promotion*$important
-||line-apps.com^*track*$important
+! ===== Today / VOOM / Timeline（資訊流與短影片）=====
+||today.line.me^
+||voom.line.me^
+||timeline.line.me/api/ad*$important
 
-! === 3) 前貼片 / VOOM / Today feed 廣告 ===
-||voom.line.me^*ad*$important
-||today.line.me^*ad*$important
-||timeline.line.me^*ad*$important
+! ===== 錢包／支付頁廣告 =====
+||linewallet.line.me/*/ads/*$important
+||pay.line.me/*/ads/*$important
+||bank.line.me/*/ads/*$important
 
-! === 4) 元素級 CSS 過濾（常見 class/id） ===
-##div[id*="ad"]
-##div[class*="ad"]
-##div[class*="ads"]
-##div[class*="sponsored"]
-##div[class*="promotion"]
-##div[class*="banner"]
-##section[class*="ad"]
-##section[class*="banner"]
+! ===== 貼圖／主題商店之推廣（僅限廣告路徑）=====
+||store.line.me/ads/*$important
+||store.line.me/*/promotion/*$important
 
-! === 5) 常見透明 tracking pixel (避免封鎖正常圖片) ===
-##img[width="1"][height="1"]
-##img[width="0"], ##img[height="0"]
-##img[src*="pixel"], ##img[src*="beacon"]
+! ===== 只封鎖 obs 中的廣告路徑（保留媒體上下載）=====
+||obs.line-apps.com/ads/*$important
