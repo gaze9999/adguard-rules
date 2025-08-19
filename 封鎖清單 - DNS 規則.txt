@@ -1,9 +1,0 @@
-||a.line.me^$important
-||today.line.me^$important
-|promotion.tutorabc.com^$important
-||obs.line-apps.com^$important
-|ip.istatmenus.app^$important
-|lan.line.me^$important
-||obs.line-scdn.net^$important
-||obs-tw.line-apps.com^$important
-||obs-jp.line-apps.com^$important
