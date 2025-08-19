@@ -1,97 +1,215 @@
 ! ============================================
-! Title: 郵件／EDM 追蹤像素精準阻擋（含 CDN）
+! Title: 郵件／EDM 追蹤像素
 ! Description: Block Email trackers
-! Version: 1.1.2
+! Version: 1.1.6
 ! Last updated: 2025-08-19
 ! ============================================
 
-! ========== A. 通用追蹤像素端點 ==========
-||*/open.$image
-||*/open?*$image
-||*/email/open*$image
-||*/track/open*$image
+! ========== 通用追蹤像素端點 ==========
 ||*/s.aspx?*$image
-||*/beacon*$image
-||*/pixel*$image
 
-! ========== B. 通用像素檔名 ==========
+! open 僅限常見行銷路徑 + 查詢參數
+||*/email/*open.aspx?*$image
+||*/email/*open.gif?*$image
+||*/email/*open.png?*$image
+||*/edm/*open.aspx?*$image
+||*/edm/*open.gif?*$image
+||*/edm/*open.png?*$image
+||*/mkt/*open.aspx?*$image
+||*/mkt/*open.gif?*$image
+||*/mkt/*open.png?*$image
+||*/marketing/*open.aspx?*$image
+||*/marketing/*open.gif?*$image
+||*/marketing/*open.png?*$image
+||*/newsletter/*open.aspx?*$image
+||*/newsletter/*open.gif?*$image
+||*/newsletter/*open.png?*$image
+||*/track/*open.aspx?*$image
+||*/track/*open.gif?*$image
+||*/track/*open.png?*$image
+||*/beacon/*open.aspx?*$image
+||*/beacon/*open.gif?*$image
+||*/beacon/*open.png?*$image
+
+! pixel / beacon 僅限行銷語意路徑 + 查詢參數
+||*/email/*pixel.gif?*$image
+||*/email/*pixel.png?*$image
+||*/edm/*pixel.gif?*$image
+||*/edm/*pixel.png?*$image
+||*/mkt/*pixel.gif?*$image
+||*/mkt/*pixel.png?*$image
+||*/marketing/*pixel.gif?*$image
+||*/marketing/*pixel.png?*$image
+||*/newsletter/*pixel.gif?*$image
+||*/newsletter/*pixel.png?*$image
+||*/track/*pixel.gif?*$image
+||*/track/*pixel.png?*$image
+||*/beacon/*beacon.gif?*$image
+||*/beacon/*beacon.png?*$image
+||*/track/*beacon.gif?*$image
+||*/track/*beacon.png?*$image
+||*/newsletter/*beacon.gif?*$image
+||*/newsletter/*beacon.png?*$image
+||*/marketing/*beacon.gif?*$image
+||*/marketing/*beacon.png?*$image
+||*/mkt/*beacon.gif?*$image
+||*/mkt/*beacon.png?*$image
+||*/edm/*beacon.gif?*$image
+||*/edm/*beacon.png?*$image
+||*/email/*beacon.gif?*$image
+||*/email/*beacon.png?*$image
+
+! ========== 通用像素檔名 ==========
 ||/1x1.gif$image
 ||/1x1.png$image
 ||/clear.gif$image
 ||/clear.png$image
 ||/transp.gif$image
-||/pixel.gif$image
-||/pixel.png$image
 
-! ========== C. CDN 常見追蹤關鍵字 ==========
-! ||*/cdn/*pixel*$image
-! ||*/cdn/*beacon*$image
-! ||*/cdn/*track*$image
-! ||*/cdn/*open*$image
-! ||cdn.*/pixel*$image
-! ||cdn.*/beacon*$image
-! ||cdn.*/track*$image
-! ||cdn.*/open*$image
+! ========== CDN 精準規則（行銷語意路徑 + 像素檔名 + ?） ==========
+! Cloudfront
+||*.cloudfront.net/*/email/*open*?*$image
+||*.cloudfront.net/*/edm/*pixel*?*$image
+||*.cloudfront.net/*/edm/*beacon*?*$image
+||*.cloudfront.net/*/edm/*open*?*$image
+||*.cloudfront.net/*/mkt/*pixel*?*$image
+||*.cloudfront.net/*/mkt/*beacon*?*$image
+||*.cloudfront.net/*/mkt/*open*?*$image
+||*.cloudfront.net/*/marketing/*pixel*?*$image
+||*.cloudfront.net/*/marketing/*beacon*?*$image
+||*.cloudfront.net/*/marketing/*open*?*$image
+||*.cloudfront.net/*/newsletter/*pixel*?*$image
+||*.cloudfront.net/*/newsletter/*beacon*?*$image
+||*.cloudfront.net/*/newsletter/*open*?*$image
+||*.cloudfront.net/*/track/*pixel*?*$image
+||*.cloudfront.net/*/track/*beacon*?*$image
+||*.cloudfront.net/*/track/*open*?*$image
 
-! ---- Cloudfront ----
-! ||*.cloudfront.net/*pixel*$image
-! ||*.cloudfront.net/*beacon*$image
-! ||*.cloudfront.net/*track*$image
-! ||*.cloudfront.net/*open*$image
+! Akamai
+||*.akamaized.net/*/email/*open*?*$image
+||*.akamaized.net/*/edm/*pixel*?*$image
+||*.akamaized.net/*/edm/*beacon*?*$image
+||*.akamaized.net/*/edm/*open*?*$image
+||*.akamaized.net/*/mkt/*pixel*?*$image
+||*.akamaized.net/*/mkt/*beacon*?*$image
+||*.akamaized.net/*/mkt/*open*?*$image
+||*.akamaized.net/*/marketing/*pixel*?*$image
+||*.akamaized.net/*/marketing/*beacon*?*$image
+||*.akamaized.net/*/marketing/*open*?*$image
+||*.akamaized.net/*/newsletter/*pixel*?*$image
+||*.akamaized.net/*/newsletter/*beacon*?*$image
+||*.akamaized.net/*/newsletter/*open*?*$image
+||*.akamaized.net/*/track/*pixel*?*$image
+||*.akamaized.net/*/track/*beacon*?*$image
+||*.akamaized.net/*/track/*open*?*$image
 
-! ---- Akamai ----
-! ||*.akamaized.net/*pixel*$image
-! ||*.akamaized.net/*beacon*$image
-! ||*.akamaized.net/*track*$image
-! ||*.akamaized.net/*open*$image
+! Fastly
+||*.fastly.net/*/email/*open*?*$image
+||*.fastly.net/*/edm/*pixel*?*$image
+||*.fastly.net/*/edm/*beacon*?*$image
+||*.fastly.net/*/edm/*open*?*$image
+||*.fastly.net/*/mkt/*pixel*?*$image
+||*.fastly.net/*/mkt/*beacon*?*$image
+||*.fastly.net/*/mkt/*open*?*$image
+||*.fastly.net/*/marketing/*pixel*?*$image
+||*.fastly.net/*/marketing/*beacon*?*$image
+||*.fastly.net/*/marketing/*open*?*$image
+||*.fastly.net/*/newsletter/*pixel*?*$image
+||*.fastly.net/*/newsletter/*beacon*?*$image
+||*.fastly.net/*/newsletter/*open*?*$image
+||*.fastly.net/*/track/*pixel*?*$image
+||*.fastly.net/*/track/*beacon*?*$image
+||*.fastly.net/*/track/*open*?*$image
 
-! ---- Fastly ----
-! ||*.fastly.net/*pixel*$image
-! ||*.fastly.net/*beacon*$image
-! ||*.fastly.net/*track*$image
-! ||*.fastly.net/*open*$image
+! Cloudflare
+||*.cloudflare.net/*/email/*open*?*$image
+||*.cloudflare.net/*/edm/*pixel*?*$image
+||*.cloudflare.net/*/edm/*beacon*?*$image
+||*.cloudflare.net/*/edm/*open*?*$image
+||*.cloudflare.net/*/mkt/*pixel*?*$image
+||*.cloudflare.net/*/mkt/*beacon*?*$image
+||*.cloudflare.net/*/mkt/*open*?*$image
+||*.cloudflare.net/*/marketing/*pixel*?*$image
+||*.cloudflare.net/*/marketing/*beacon*?*$image
+||*.cloudflare.net/*/marketing/*open*?*$image
+||*.cloudflare.net/*/newsletter/*pixel*?*$image
+||*.cloudflare.net/*/newsletter/*beacon*?*$image
+||*.cloudflare.net/*/newsletter/*open*?*$image
+||*.cloudflare.net/*/track/*pixel*?*$image
+||*.cloudflare.net/*/track/*beacon*?*$image
+||*.cloudflare.net/*/track/*open*?*$image
 
-! ---- Cloudflare ----
-! ||*.cloudflare.net/*pixel*$image
-! ||*.cloudflare.net/*beacon*$image
-! ||*.cloudflare.net/*track*$image
-! ||*.cloudflare.net/*open*$image
-
-! ========== D. 電商常見追蹤像素 ==========
+! ========== 電商常見追蹤像素 ==========
+! Amazon
 ||images-*.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
 ||amazon.co.jp/gp/r.html*$image
 ||amazon.com/gp/r.html*$image
+! eBay
 ||rover.ebay.com/*1x1*$image
 ||ebay.com/*/pixel*$image
+! Rakuten JP
 ||emagazine.rakuten.co.jp/*open*$image
 ||rakuten.co.jp/*/pixel*$image
+! Yahoo Shopping JP
 ||shopping.yahoo.co.jp/*/open*$image
 ||shopping.yahoo.co.jp/*/track*$image
+! Yahoo Buy TW
 ||buy.yahoo.com.tw/*/open*$image
 ||buy.yahoo.com.tw/*/track*$image
+! PChome TW
 ||edm.pchome.com.tw/*open*$image
 ||edm.pchome.com.tw/*pixel*$image
+! MOMO TW
 ||edm.momoshop.com.tw/*open*$image
 ||edm.momoshop.com.tw/*pixel*$image
+! Shopee TW / JP
 ||edm.shopee.tw/*open*$image
 ||edm.shopee.tw/*pixel*$image
 ||edm.shopee.jp/*open*$image
 ||edm.shopee.jp/*pixel*$image
+! Mercari JP
 ||edm.mercari.jp/*open*$image
+! ZOZO JP
 ||edm.zozo.jp/*open*$image
 
-! ========== E. 銀行 EDM 常見追蹤像素 ==========
+! ========== 銀行 EDM 常見追蹤像素 ==========
+! 台新銀行
 ||mhurcv.taishinbank.com.tw/Open.aspx^$image
 ||mhurcv.taishinbank.com.tw/taishin_a/s.aspx^$image
+! 玉山銀行
 ||edm.esunbank.com.tw/*s.aspx?*$image
+! 中國信託
 ||edm.ctbcbank.com/*s.aspx?*$image
+! 國泰世華
 ||edm.cathaybk.com.tw/*s.aspx?*$image
+! 第一銀行
 ||edm.firstbank.com.tw/*s.aspx?*$image
+! 華南銀行
 ||edm.hncb.com.tw/*s.aspx?*$image
+! 兆豐銀行
 ||edm.megabank.com.tw/*s.aspx?*$image
+! 台灣銀行
 ||edm.bot.com.tw/*s.aspx?*$image
+! 星展銀行 (DBS)
+||dbsemail.dbs.com/*open.aspx?*$image
+||dbsemail.dbs.com/*s.aspx?*$image
+||edm.dbschen.com/*open*$image
+||edm.dbschen.com/*s.aspx?*$image
+! 聯邦銀行 (UBOT)
+||edm.ubot.com.tw/*s.aspx?*$image
+! HSBC 滙豐銀行
+||edm.hsbc.com/*s.aspx?*$image
+||edm.hsbc.com/*open*$image
+! Citi 花旗銀行
+||edm.citibank.com/*s.aspx?*$image
+||edm.citibank.com/*open*$image
+! 三菱日聯銀行 (MUFG JP)
 ||edm.bk.mufg.jp/*s.aspx?*$image
+! 三井住友銀行 (SMBC JP)
 ||edm.smbc.co.jp/*s.aspx?*$image
+! 瑞穗銀行 (Mizuho JP)
 ||edm.mizuhobank.co.jp/*s.aspx?*$image
+! 樂天銀行 (Rakuten JP)
 ||edm.rakuten-bank.co.jp/*s.aspx?*$image
+! Resona 銀行 (JP)
 ||edm.resonabank.co.jp/*s.aspx?*$image
