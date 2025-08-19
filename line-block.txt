@@ -17,6 +17,7 @@
 ||timeline.line.me/api/ad*$important
 
 ! ===== 錢包／支付頁廣告 =====
+||wallet-ad.line.me*$important
 ||linewallet.line.me/*/ads/*$important
 ||pay.line.me/*/ads/*$important
 ||bank.line.me/*/ads/*$important
@@ -27,3 +28,21 @@
 
 ! ===== 只封鎖 obs 中的廣告路徑（保留媒體上下載）=====
 ||obs.line-apps.com/ads/*$important
+
+! ===== 常見第三方廣告／量測（LINE 內嵌 SDK）=====
+! ||adservice.google.com$important
+! ||googleads.g.doubleclick.net$important
+! ||pagead2.googlesyndication.com$important
+! ||securepubads.g.doubleclick.net$important
+! ||static.doubleclick.net$important
+! ||ads.yahoo.com$important
+! ||app-measurement.com$important
+! ||googletagmanager.com$important
+! ||googletagservices.com$important
+! ||ads-twitter.com$important
+! ||analytics.twitter.com$important
+! ||criteo.com$important
+! ||rubiconproject.com$important
+! ||adnxs.com$important
+! ||adsrvr.org$important
+! ||pubmatic.com$important
