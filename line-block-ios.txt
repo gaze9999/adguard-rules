@@ -1,39 +1,40 @@
 ! ================================
-! LINE App 廣告封鎖 (iOS DNS)
-! Version: 1.1.0
-! 更新：2025-08-19
+! Title: LINE App 廣告封鎖 (iOS DNS)
+! Description: Block LINE ads for iOS
+! Version: 1.1.2
+! Last updated: 2025-08-19
 ! ================================
 
 ! ===== LINE 官方廣告／量測 =====
-ads.line.me
-ad.line.me
-ad-api.line.me
-ad-analytics.line.me
+||ads.line.me^
+||ad.line.me^
+||ad-api.line.me^
+||ad-analytics.line.me^
 
 ! ===== Today / VOOM / Timeline（資訊流與短影片）=====
-today.line.me
-voom.line.me
-timeline.line.me
+||today.line.me^
+||voom.line.me^
+||timeline.line.me^
 
 ! ===== 錢包／支付廣告 =====
-linewallet.line.me
-wallet-ad.line.me
-pay.line.me
+||linewallet.line.me^
+||wallet-ad.line.me^
+||pay.line.me^
 
 ! ===== 常見第三方廣告／量測（LINE 內嵌 SDK）=====
-adservice.google.com
-googleads.g.doubleclick.net
-pagead2.googlesyndication.com
-securepubads.g.doubleclick.net
-static.doubleclick.net
-ads.yahoo.com
-app-measurement.com
-googletagmanager.com
-googletagservices.com
-ads-twitter.com
-analytics.twitter.com
-criteo.com
-rubiconproject.com
-adnxs.com
-adsrvr.org
-pubmatic.com
+||adservice.google.com^
+||googleads.g.doubleclick.net^
+||pagead2.googlesyndication.com^
+||securepubads.g.doubleclick.net^
+||static.doubleclick.net^
+||ads.yahoo.com^
+||app-measurement.com^
+||googletagmanager.com^
+||googletagservices.com^
+||ads-twitter.com^
+||analytics.twitter.com^
+||criteo.com^
+||rubiconproject.com^
+||adnxs.com^
+||adsrvr.org^
+||pubmatic.com^
