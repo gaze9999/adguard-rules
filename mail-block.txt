@@ -1,7 +1,8 @@
 ! ============================================
-! 郵件／EDM 追蹤像素精準阻擋（含 CDN）
-! Version: 1.1.0
-! 更新：2025-08-19
+! Title: 郵件／EDM 追蹤像素精準阻擋（含 CDN）
+! Description: Block Email trackers
+! Version: 1.1.2
+! Last updated: 2025-08-19
 ! ============================================
 
 ! ========== A. 通用追蹤像素端點 ==========
@@ -23,38 +24,38 @@
 ||/pixel.png$image
 
 ! ========== C. CDN 常見追蹤關鍵字 ==========
-||*/cdn/*pixel*$image
-||*/cdn/*beacon*$image
-||*/cdn/*track*$image
-||*/cdn/*open*$image
-||cdn.*/pixel*$image
-||cdn.*/beacon*$image
-||cdn.*/track*$image
-||cdn.*/open*$image
+! ||*/cdn/*pixel*$image
+! ||*/cdn/*beacon*$image
+! ||*/cdn/*track*$image
+! ||*/cdn/*open*$image
+! ||cdn.*/pixel*$image
+! ||cdn.*/beacon*$image
+! ||cdn.*/track*$image
+! ||cdn.*/open*$image
 
 ! ---- Cloudfront ----
-||*.cloudfront.net/*pixel*$image
-||*.cloudfront.net/*beacon*$image
-||*.cloudfront.net/*track*$image
-||*.cloudfront.net/*open*$image
+! ||*.cloudfront.net/*pixel*$image
+! ||*.cloudfront.net/*beacon*$image
+! ||*.cloudfront.net/*track*$image
+! ||*.cloudfront.net/*open*$image
 
 ! ---- Akamai ----
-||*.akamaized.net/*pixel*$image
-||*.akamaized.net/*beacon*$image
-||*.akamaized.net/*track*$image
-||*.akamaized.net/*open*$image
+! ||*.akamaized.net/*pixel*$image
+! ||*.akamaized.net/*beacon*$image
+! ||*.akamaized.net/*track*$image
+! ||*.akamaized.net/*open*$image
 
 ! ---- Fastly ----
-||*.fastly.net/*pixel*$image
-||*.fastly.net/*beacon*$image
-||*.fastly.net/*track*$image
-||*.fastly.net/*open*$image
+! ||*.fastly.net/*pixel*$image
+! ||*.fastly.net/*beacon*$image
+! ||*.fastly.net/*track*$image
+! ||*.fastly.net/*open*$image
 
 ! ---- Cloudflare ----
-||*.cloudflare.net/*pixel*$image
-||*.cloudflare.net/*beacon*$image
-||*.cloudflare.net/*track*$image
-||*.cloudflare.net/*open*$image
+! ||*.cloudflare.net/*pixel*$image
+! ||*.cloudflare.net/*beacon*$image
+! ||*.cloudflare.net/*track*$image
+! ||*.cloudflare.net/*open*$image
 
 ! ========== D. 電商常見追蹤像素 ==========
 ||images-*.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
