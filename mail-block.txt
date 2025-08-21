@@ -1,215 +1,380 @@
 ! ============================================
-! Title: 郵件／EDM 追蹤像素
-! Description: Block Email trackers
-! Version: 1.1.6
-! Last updated: 2025-08-19
+! Title: 郵件／EDM 追蹤像素通用阻擋
+! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
+! Version: 1.2.0
+! Author: Gazelle
+! Homepage: https://github.com/gazelle/adguard-rules
+! License: MIT
+! TimeUpdated: 2025-01-25T02:00:00.000Z
 ! ============================================
 
-! ========== 通用追蹤像素端點 ==========
+! ========== 行銷路徑通用追蹤端點 ==========
+||*/email/*open*$image
+||*/edm/*open*$image
+||*/mkt/*open*$image
+||*/marketing/*open*$image
+||*/newsletter/*open*$image
+||*/track/*open*$image
+||*/beacon/*open*$image
+
+||*/email/*pixel*$image
+||*/edm/*pixel*$image
+||*/mkt/*pixel*$image
+||*/marketing/*pixel*$image
+||*/newsletter/*pixel*$image
+||*/track/*pixel*$image
+||*/beacon/*pixel*$image
+
+||*/email/*beacon*$image
+||*/edm/*beacon*$image
+||*/mkt/*beacon*$image
+||*/marketing/*beacon*$image
+||*/newsletter/*beacon*$image
+||*/track/*beacon*$image
+||*/beacon/*beacon*$image
+
+! ========== 通用像素 ==========
 ||*/s.aspx?*$image
+||*/1x1.gif^$image
+||*/1x1.png^$image
+||*/clear.gif^$image
+||*/clear.png^$image
+||*/transp.gif^$image
+||*/transparent.gif^$image
+||*/transparent.png^$image
+||*/pixel.gif^$image
+||*/pixel.png^$image
+||*/tracking.gif^$image
+||*/tracking.png^$image
+||*/spacer.gif^$image
+||*/spacer.png^$image
+||*/tracker.gif^$image
+||*/tracker.png^$image
+||*/beacon.gif^$image
+||*/beacon.png^$image
+||*/px.gif^$image
+||*/px.png^$image
+||*/pix.gif^$image
+||*/pix.png^$image
 
-! open 僅限常見行銷路徑 + 查詢參數
-||*/email/*open.aspx?*$image
-||*/email/*open.gif?*$image
-||*/email/*open.png?*$image
-||*/edm/*open.aspx?*$image
-||*/edm/*open.gif?*$image
-||*/edm/*open.png?*$image
-||*/mkt/*open.aspx?*$image
-||*/mkt/*open.gif?*$image
-||*/mkt/*open.png?*$image
-||*/marketing/*open.aspx?*$image
-||*/marketing/*open.gif?*$image
-||*/marketing/*open.png?*$image
-||*/newsletter/*open.aspx?*$image
-||*/newsletter/*open.gif?*$image
-||*/newsletter/*open.png?*$image
-||*/track/*open.aspx?*$image
-||*/track/*open.gif?*$image
-||*/track/*open.png?*$image
-||*/beacon/*open.aspx?*$image
-||*/beacon/*open.gif?*$image
-||*/beacon/*open.png?*$image
-
-! pixel / beacon 僅限行銷語意路徑 + 查詢參數
-||*/email/*pixel.gif?*$image
-||*/email/*pixel.png?*$image
-||*/edm/*pixel.gif?*$image
-||*/edm/*pixel.png?*$image
-||*/mkt/*pixel.gif?*$image
-||*/mkt/*pixel.png?*$image
-||*/marketing/*pixel.gif?*$image
-||*/marketing/*pixel.png?*$image
-||*/newsletter/*pixel.gif?*$image
-||*/newsletter/*pixel.png?*$image
-||*/track/*pixel.gif?*$image
-||*/track/*pixel.png?*$image
-||*/beacon/*beacon.gif?*$image
-||*/beacon/*beacon.png?*$image
-||*/track/*beacon.gif?*$image
-||*/track/*beacon.png?*$image
-||*/newsletter/*beacon.gif?*$image
-||*/newsletter/*beacon.png?*$image
-||*/marketing/*beacon.gif?*$image
-||*/marketing/*beacon.png?*$image
-||*/mkt/*beacon.gif?*$image
-||*/mkt/*beacon.png?*$image
-||*/edm/*beacon.gif?*$image
-||*/edm/*beacon.png?*$image
-||*/email/*beacon.gif?*$image
-||*/email/*beacon.png?*$image
-
-! ========== 通用像素檔名 ==========
-||/1x1.gif$image
-||/1x1.png$image
-||/clear.gif$image
-||/clear.png$image
-||/transp.gif$image
-
-! ========== CDN 精準規則（行銷語意路徑 + 像素檔名 + ?） ==========
+! ========== CDN 通用追蹤端點 ==========
 ! Cloudfront
-||*.cloudfront.net/*/email/*open*?*$image
-||*.cloudfront.net/*/edm/*pixel*?*$image
-||*.cloudfront.net/*/edm/*beacon*?*$image
-||*.cloudfront.net/*/edm/*open*?*$image
-||*.cloudfront.net/*/mkt/*pixel*?*$image
-||*.cloudfront.net/*/mkt/*beacon*?*$image
-||*.cloudfront.net/*/mkt/*open*?*$image
-||*.cloudfront.net/*/marketing/*pixel*?*$image
-||*.cloudfront.net/*/marketing/*beacon*?*$image
-||*.cloudfront.net/*/marketing/*open*?*$image
-||*.cloudfront.net/*/newsletter/*pixel*?*$image
-||*.cloudfront.net/*/newsletter/*beacon*?*$image
-||*.cloudfront.net/*/newsletter/*open*?*$image
-||*.cloudfront.net/*/track/*pixel*?*$image
-||*.cloudfront.net/*/track/*beacon*?*$image
-||*.cloudfront.net/*/track/*open*?*$image
+||*.cloudfront.net/*/email/*open*$image
+||*.cloudfront.net/*/edm/*pixel*$image
+||*.cloudfront.net/*/mkt/*beacon*$image
+||*.cloudfront.net/*/marketing/*open*$image
+||*.cloudfront.net/*/newsletter/*pixel*$image
+||*.cloudfront.net/*/track/*beacon*$image
 
 ! Akamai
-||*.akamaized.net/*/email/*open*?*$image
-||*.akamaized.net/*/edm/*pixel*?*$image
-||*.akamaized.net/*/edm/*beacon*?*$image
-||*.akamaized.net/*/edm/*open*?*$image
-||*.akamaized.net/*/mkt/*pixel*?*$image
-||*.akamaized.net/*/mkt/*beacon*?*$image
-||*.akamaized.net/*/mkt/*open*?*$image
-||*.akamaized.net/*/marketing/*pixel*?*$image
-||*.akamaized.net/*/marketing/*beacon*?*$image
-||*.akamaized.net/*/marketing/*open*?*$image
-||*.akamaized.net/*/newsletter/*pixel*?*$image
-||*.akamaized.net/*/newsletter/*beacon*?*$image
-||*.akamaized.net/*/newsletter/*open*?*$image
-||*.akamaized.net/*/track/*pixel*?*$image
-||*.akamaized.net/*/track/*beacon*?*$image
-||*.akamaized.net/*/track/*open*?*$image
+||*.akamaized.net/*/email/*open*$image
+||*.akamaized.net/*/edm/*pixel*$image
+||*.akamaized.net/*/mkt/*beacon*$image
+||*.akamaized.net/*/marketing/*open*$image
+||*.akamaized.net/*/newsletter/*pixel*$image
+||*.akamaized.net/*/track/*beacon*$image
 
 ! Fastly
-||*.fastly.net/*/email/*open*?*$image
-||*.fastly.net/*/edm/*pixel*?*$image
-||*.fastly.net/*/edm/*beacon*?*$image
-||*.fastly.net/*/edm/*open*?*$image
-||*.fastly.net/*/mkt/*pixel*?*$image
-||*.fastly.net/*/mkt/*beacon*?*$image
-||*.fastly.net/*/mkt/*open*?*$image
-||*.fastly.net/*/marketing/*pixel*?*$image
-||*.fastly.net/*/marketing/*beacon*?*$image
-||*.fastly.net/*/marketing/*open*?*$image
-||*.fastly.net/*/newsletter/*pixel*?*$image
-||*.fastly.net/*/newsletter/*beacon*?*$image
-||*.fastly.net/*/newsletter/*open*?*$image
-||*.fastly.net/*/track/*pixel*?*$image
-||*.fastly.net/*/track/*beacon*?*$image
-||*.fastly.net/*/track/*open*?*$image
+||*.fastly.net/*/email/*open*$image
+||*.fastly.net/*/edm/*pixel*$image
+||*.fastly.net/*/mkt/*beacon*$image
+||*.fastly.net/*/marketing/*open*$image
+||*.fastly.net/*/newsletter/*pixel*$image
+||*.fastly.net/*/track/*beacon*$image
 
 ! Cloudflare
-||*.cloudflare.net/*/email/*open*?*$image
-||*.cloudflare.net/*/edm/*pixel*?*$image
-||*.cloudflare.net/*/edm/*beacon*?*$image
-||*.cloudflare.net/*/edm/*open*?*$image
-||*.cloudflare.net/*/mkt/*pixel*?*$image
-||*.cloudflare.net/*/mkt/*beacon*?*$image
-||*.cloudflare.net/*/mkt/*open*?*$image
-||*.cloudflare.net/*/marketing/*pixel*?*$image
-||*.cloudflare.net/*/marketing/*beacon*?*$image
-||*.cloudflare.net/*/marketing/*open*?*$image
-||*.cloudflare.net/*/newsletter/*pixel*?*$image
-||*.cloudflare.net/*/newsletter/*beacon*?*$image
-||*.cloudflare.net/*/newsletter/*open*?*$image
-||*.cloudflare.net/*/track/*pixel*?*$image
-||*.cloudflare.net/*/track/*beacon*?*$image
-||*.cloudflare.net/*/track/*open*?*$image
+||*.cloudflare.net/*/email/*open*$image
+||*.cloudflare.net/*/edm/*pixel*$image
+||*.cloudflare.net/*/mkt/*beacon*$image
+||*.cloudflare.net/*/marketing/*open*$image
+||*.cloudflare.net/*/newsletter/*pixel*$image
+||*.cloudflare.net/*/track/*beacon*$image
 
 ! ========== 電商常見追蹤像素 ==========
 ! Amazon
 ||images-*.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
 ||amazon.co.jp/gp/r.html*$image
 ||amazon.com/gp/r.html*$image
+
 ! eBay
 ||rover.ebay.com/*1x1*$image
-||ebay.com/*/pixel*$image
+||p.ebaystatic.com/*/pixel*$image
+
+! Amazon JP
+||images-na.ssl-images-amazon.com/images/G/09/nav/transp.gif$image
+||amazon.co.jp/gp/r.html*$image
+
 ! Rakuten JP
 ||emagazine.rakuten.co.jp/*open*$image
-||rakuten.co.jp/*/pixel*$image
+||r.r10s.jp/*/pixel*$image
+||img.rakuten.co.jp/*/pixel*$image
+
 ! Yahoo Shopping JP
 ||shopping.yahoo.co.jp/*/open*$image
-||shopping.yahoo.co.jp/*/track*$image
-! Yahoo Buy TW
-||buy.yahoo.com.tw/*/open*$image
-||buy.yahoo.com.tw/*/track*$image
-! PChome TW
-||edm.pchome.com.tw/*open*$image
-||edm.pchome.com.tw/*pixel*$image
-! MOMO TW
+||yimg.jp/*/track*$image
+||s.yimg.jp/*/beacon*$image
+
+! ZOZO JP
+||cdn.zozotown.com/*/pixel*$image
+||img.zozo.jp/*/track*$image
+
+! Mercari JP
+||static.mercdn.net/*/pixel*$image
+||assets.mercari.com/*/track*$image
+
+! Yodobashi JP
+||yodobashi.com/*/pixel*$image
+||img.yodobashi.com/*/track*$image
+
+! BIC Camera JP
+||biccamera.com/*/pixel*$image
+||img.biccamera.com/*/open*$image
+
+! Yahoo奇摩購物中心 TW
+||tw.buy.yahoo.com/*/open*$image
+||tw.buy.yahoo.com/*/track*$image
+
+! PChome 24h購物 TW
+||edm.24h.pchome.com.tw/*open*$image
+||edm.24h.pchome.com.tw/*pixel*$image
+||edm.24h.pchome.com.tw/*s.aspx?*$image
+
+! MOMO購物網 TW
 ||edm.momoshop.com.tw/*open*$image
 ||edm.momoshop.com.tw/*pixel*$image
-! Shopee TW / JP
-||edm.shopee.tw/*open*$image
-||edm.shopee.tw/*pixel*$image
-||edm.shopee.jp/*open*$image
-||edm.shopee.jp/*pixel*$image
-! Mercari JP
-||edm.mercari.jp/*open*$image
-! ZOZO JP
-||edm.zozo.jp/*open*$image
+||edm.momoshop.com.tw/*s.aspx?*$image
 
-! ========== 銀行 EDM 常見追蹤像素 ==========
+! 蝦皮購物 TW
+||cf.shopee.tw/file/*/pixel*$image
+||cf.shopee.tw/file/*/beacon*$image
+
+! 博客來 TW
+||im1.book.com.tw/*/pixel*$image
+||im2.book.com.tw/*/open*$image
+
+! 誠品線上 TW
+||meet.eslite.com/*open*$image
+||meet.eslite.com/*pixel*$image
+
+! 燦坤快3 TW
+||edm.tkec.com.tw/*open*$image
+||edm.tkec.com.tw/*pixel*$image
+||edm.tkec.com.tw/*s.aspx?*$image
+
+! 全國電子 TW
+||edm.elifemall.com.tw/*open*$image
+||edm.elifemall.com.tw/*pixel*$image
+
+! 家樂福線上購物 TW
+||online.carrefour.com.tw/*/pixel*$image
+||online.carrefour.com.tw/*/open*$image
+
+! 大潤發網路購物 TW
+||rt-mart.com.tw/*/pixel*$image
+||rt-mart.com.tw/*/open*$image
+
+! 好市多線上購物 TW
+||costco.com.tw/*/pixel*$image
+||costco.com.tw/*/open*$image
+
+! 松果購物 TW
+||cdn.pinecone.com.tw/*/pixel*$image
+||cdn.pinecone.com.tw/*/open*$image
+
+! 生活市集 TW
+||static.buy123.com.tw/*/pixel*$image
+||static.buy123.com.tw/*/open*$image
+
+! ETMall東森購物 TW
+||static.etmall.com.tw/*/pixel*$image
+||static.etmall.com.tw/*/open*$image
+
+! 森森購物 TW
+||umedia.u-mall.com.tw/*/pixel*$image
+||umedia.u-mall.com.tw/*/open*$image
+
+! 富邦momo TW
+||static.momoshop.com.tw/*/pixel*$image
+||static.momoshop.com.tw/*/beacon*$image
+
+! ========== 台灣銀行 EDM 常見追蹤像素 ==========
 ! 台新銀行
 ||mhurcv.taishinbank.com.tw/Open.aspx^$image
 ||mhurcv.taishinbank.com.tw/taishin_a/s.aspx^$image
+||edm.taishinbank.com.tw/*s.aspx?*$image
+||edm.taishinbank.com.tw/*open*$image
+
 ! 玉山銀行
 ||edm.esunbank.com.tw/*s.aspx?*$image
+||edm.esunbank.com.tw/*open*$image
+||edm.esunbank.com.tw/*pixel*$image
+
 ! 中國信託
 ||edm.ctbcbank.com/*s.aspx?*$image
+||edm.ctbcbank.com/*open*$image
+||edm.ctbcbank.com/*pixel*$image
+
 ! 國泰世華
 ||edm.cathaybk.com.tw/*s.aspx?*$image
+||edm.cathaybk.com.tw/*open*$image
+||edm.cathaybk.com.tw/*pixel*$image
+
 ! 第一銀行
 ||edm.firstbank.com.tw/*s.aspx?*$image
+||edm.firstbank.com.tw/*open*$image
+||edm.firstbank.com.tw/*pixel*$image
+
 ! 華南銀行
 ||edm.hncb.com.tw/*s.aspx?*$image
+||edm.hncb.com.tw/*open*$image
+||edm.hncb.com.tw/*pixel*$image
+
 ! 兆豐銀行
 ||edm.megabank.com.tw/*s.aspx?*$image
+||edm.megabank.com.tw/*open*$image
+||edm.megabank.com.tw/*pixel*$image
+
 ! 台灣銀行
 ||edm.bot.com.tw/*s.aspx?*$image
+||edm.bot.com.tw/*open*$image
+||edm.bot.com.tw/*pixel*$image
+
+! 合作金庫銀行
+||edm.tcb-bank.com.tw/*s.aspx?*$image
+||edm.tcb-bank.com.tw/*open*$image
+||edm.tcb-bank.com.tw/*pixel*$image
+
+! 土地銀行
+||edm.landbank.com.tw/*s.aspx?*$image
+||edm.landbank.com.tw/*open*$image
+||edm.landbank.com.tw/*pixel*$image
+
+! 彰化銀行
+||edm.chb.com.tw/*s.aspx?*$image
+||edm.chb.com.tw/*open*$image
+||edm.chb.com.tw/*pixel*$image
+
+! 台北富邦銀行
+||edm.fubon.com/*s.aspx?*$image
+||edm.fubon.com/*open*$image
+||edm.fubon.com/*pixel*$image
+
+! 永豐銀行
+||edm.sinopac.com/*s.aspx?*$image
+||edm.sinopac.com/*open*$image
+||edm.sinopac.com/*pixel*$image
+
+! 元大銀行
+||edm.yuantabank.com.tw/*s.aspx?*$image
+||edm.yuantabank.com.tw/*open*$image
+||edm.yuantabank.com.tw/*pixel*$image
+
+! 王道銀行
+||edm.o-bank.com/*s.aspx?*$image
+||edm.o-bank.com/*open*$image
+||edm.o-bank.com/*pixel*$image
+
+! 聯邦銀行 (UBOT)
+||edm.ubot.com.tw/*s.aspx?*$image
+||edm.ubot.com.tw/*open*$image
+||edm.ubot.com.tw/*pixel*$image
+
 ! 星展銀行 (DBS)
 ||dbsemail.dbs.com/*open.aspx?*$image
 ||dbsemail.dbs.com/*s.aspx?*$image
 ||edm.dbschen.com/*open*$image
 ||edm.dbschen.com/*s.aspx?*$image
-! 聯邦銀行 (UBOT)
-||edm.ubot.com.tw/*s.aspx?*$image
+||edm.dbs.com/*pixel*$image
+
 ! HSBC 滙豐銀行
 ||edm.hsbc.com/*s.aspx?*$image
 ||edm.hsbc.com/*open*$image
+||edm.hsbc.com/*pixel*$image
+
 ! Citi 花旗銀行
 ||edm.citibank.com/*s.aspx?*$image
 ||edm.citibank.com/*open*$image
-! 三菱日聯銀行 (MUFG JP)
-||edm.bk.mufg.jp/*s.aspx?*$image
-! 三井住友銀行 (SMBC JP)
-||edm.smbc.co.jp/*s.aspx?*$image
-! 瑞穗銀行 (Mizuho JP)
-||edm.mizuhobank.co.jp/*s.aspx?*$image
-! 樂天銀行 (Rakuten JP)
-||edm.rakuten-bank.co.jp/*s.aspx?*$image
-! Resona 銀行 (JP)
-||edm.resonabank.co.jp/*s.aspx?*$image
+||edm.citibank.com/*pixel*$image
+
+! ========== 日本銀行 EDM 常見追蹤像素 ==========
+! 三菱UFJ銀行
+||direct.bk.mufg.jp/*/open*$image
+||direct.bk.mufg.jp/*/pixel*$image
+||edm.bk.mufg.jp/*/s.aspx?*$image
+||mail.bk.mufg.jp/*/track*$image
+
+! 三井住友銀行
+||direct.smbc.co.jp/*/open*$image
+||direct.smbc.co.jp/*/pixel*$image
+||edm.smbc.co.jp/*/s.aspx?*$image
+||mail.smbc.co.jp/*/track*$image
+
+! 瑞穗銀行
+||direct.mizuhobank.co.jp/*/open*$image
+||direct.mizuhobank.co.jp/*/pixel*$image
+||edm.mizuhobank.co.jp/*/s.aspx?*$image
+||mail.mizuhobank.co.jp/*/track*$image
+
+! 三井住友信託銀行
+||direct.smtb.jp/*/open*$image
+||direct.smtb.jp/*/pixel*$image
+||edm.smtb.jp/*/s.aspx?*$image
+||mail.smtb.jp/*/track*$image
+
+! 資產管理One銀行 (旧りそな銀行)
+||direct.am-one.co.jp/*/open*$image
+||direct.am-one.co.jp/*/pixel*$image
+||edm.am-one.co.jp/*/s.aspx?*$image
+
+! 樂天銀行
+||mail.rakuten-bank.co.jp/*/open*$image
+||mail.rakuten-bank.co.jp/*/pixel*$image
+||edm.rakuten-bank.co.jp/*/s.aspx?*$image
+||track.rakuten-bank.co.jp/*/beacon*$image
+
+! ゆうちょ銀行 (Japan Post Bank)
+||direct.jp-bank.japanpost.jp/*/open*$image
+||direct.jp-bank.japanpost.jp/*/pixel*$image
+||edm.jp-bank.japanpost.jp/*/s.aspx?*$image
+
+! 住信SBIネット銀行
+||netbk.co.jp/*/open*$image
+||netbk.co.jp/*/pixel*$image
+||edm.netbk.co.jp/*/track*$image
+||mail.netbk.co.jp/*/beacon*$image
+
+! 三菱UFJ信託銀行
+||tr.mufg.jp/*/open*$image
+||tr.mufg.jp/*/pixel*$image
+||edm.tr.mufg.jp/*/s.aspx?*$image
+
+! みずほ信託銀行
+||mizuho-tb.co.jp/*/open*$image
+||mizuho-tb.co.jp/*/pixel*$image
+||edm.mizuho-tb.co.jp/*/track*$image
+
+! 農林中央金庫
+||nochubank.or.jp/*/open*$image
+||nochubank.or.jp/*/pixel*$image
+||edm.nochubank.or.jp/*/track*$image
+
+! 新生銀行
+||shinseibank.com/*/open*$image
+||shinseibank.com/*/pixel*$image
+||edm.shinseibank.com/*/track*$image
+
+! あおぞら銀行
+||aozorabank.co.jp/*/open*$image
+||aozorabank.co.jp/*/pixel*$image
+||edm.aozorabank.co.jp/*/track*$image
+
+! ソニー銀行
+||moneykit.net/*/open*$image
+||moneykit.net/*/pixel*$image
+||edm.moneykit.net/*/track*$image
+
+! イオン銀行
+||aeonbank.co.jp/*/open*$image
+||aeonbank.co.jp/*/pixel*$image
+||edm.aeonbank.co.jp/*/track*$image
+||mail.aeonbank.co.jp/*/beacon*$image
