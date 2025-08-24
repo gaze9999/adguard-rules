@@ -1,0 +1,11 @@
+! ============================================
+! Title: 巴哈廣告攔截
+! Description: 擋部分巴哈廣告
+! Version: 1.0.0
+! Author: Gazelle
+! Homepage: https://github.com/gazelle/adguard-rules
+! License: MIT
+! TimeUpdated: 2025-08-24T02:00:00.000Z
+! ============================================
+
+https://p2.bahamut.com.tw/S/2KU^$image
