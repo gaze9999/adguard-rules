@@ -1,11 +1,11 @@
 ! ============================================
 ! Title: 郵件／EDM 追蹤像素通用阻擋
 ! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
-! Version: 1.2.11
+! Version: 1.2.12
 ! Author: Gazelle
 ! Homepage: https://github.com/gazelle/adguard-rules
 ! License: MIT
-! TimeUpdated: 2025-08-25T09:50:00.000Z
+! TimeUpdated: 2025-08-25T11:00:00.000Z
 ! ============================================
 
 ! ========== 行銷路徑通用追蹤端點 ==========
@@ -44,6 +44,13 @@
 ||emails.github.com/trk?*
 ||*.sendibm*.com/im/*?u=*$image
 ||email.focusrite.com/e3t/*
+
+! 常見電子報平台追蹤像素
+||list-manage.com/track/open.php?*$image
+||mailchimp.com/track/open.php?*$image
+||ct.sendgrid.net/wf/open?*$image
+||mandrillapp.com/track/open.php?*$image
+||sparkpostmail.com/wf/open?*$image
 
 ! ===== Humble Bundle 郵件追蹤阻擋 =====
 ! 阻擋所有 mailer.humblebundle.com 的追蹤轉址
