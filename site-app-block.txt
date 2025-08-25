@@ -1,0 +1,22 @@
+! ============================================
+! Title: 指定網站／軟體廣告阻擋
+! Description: 收錄特定網站或應用程式內的廣告阻擋規則
+! Version: 1.3.0
+! Author: Gazelle
+! Homepage: https://github.com/gazelle/adguard-rules
+! License: MIT
+! TimeUpdated: 2025-08-25T12:00:00.000Z
+! ============================================
+
+! ===== 巴哈姆特 =====
+https://p2.bahamut.com.tw/S/2KU/^*$image
+
+! ===== Reddit (App/Web) =====
+||gql.reddit.com^$important,app=com.reddit.frontpage
+||events.redditmedia.com^$important,app=com.reddit.frontpage
+||gql.reddit.com^$important,app=com.reddit.Reddit
+||events.redditmedia.com^$important,app=com.reddit.Reddit
+! Block promoted posts in the feed
+reddit.com#?#div[data-testid="post-container"]:has(span:contains(Promoted))$app=com.reddit.frontpage
+reddit.com#?#div[data-testid="post-container"]:has(span:contains(Promoted))$app=com.reddit.Reddit
+reddit.com#?#div[data-testid="post-container"]:has(span:contains(Promoted))
