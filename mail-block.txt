@@ -34,17 +34,15 @@
 ||*/beacon/*beacon*$image
 
 ! ========== 帶param圖片 ==========
-||hinet.net^$removeparam=g,image,app=com.apple.mail|com.apple.mobilemail
-||hinet.net^$removeparam=t,image,app=com.apple.mail|com.apple.mobilemail
-||hinet.net^$removeparam=v,image,app=com.apple.mail|com.apple.mobilemail
+*$removeparam=g,image,third-party,app=com.apple.mail|com.apple.mobilemail
+! —— 可選（常見快取戳記；少數站點可能依賴）——
+! *$removeparam=t,image,third-party,app=com.apple.mail|com.apple.mobilemail
+! —— 謹慎選用（版本號常作資產版控；移除後偶見樣式或圖片不更新）——
+! *$removeparam=v,image,third-party,app=com.apple.mail|com.apple.mobilemail
 
-! ========== GitHub 郵件追蹤 ==========
+! ========== 其他網域追蹤 ==========
 ||emails.github.com/trk?*
-
-! ========== SendIBM 郵件追蹤 ==========
 ||*.sendibm*.com/im/*?u=*$image
-
-! ========== Focusrite 郵件追蹤 ==========
 ||email.focusrite.com/e3t/*
 
 ! ========== 通用像素 ==========
