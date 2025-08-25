@@ -1,7 +1,7 @@
 ! ============================================
 ! Title: 郵件／EDM 追蹤像素通用阻擋
 ! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
-! Version: 1.2.7
+! Version: 1.2.8
 ! Author: Gazelle
 ! Homepage: https://github.com/gazelle/adguard-rules
 ! License: MIT
@@ -34,7 +34,9 @@
 ||*/beacon/*beacon*$image
 
 ! ========== 帶param圖片 ==========
-||*tsbank*/*.*?$removeparam=g
+||hinet.net^$removeparam=g,image,app=com.apple.mail|com.apple.mobilemail
+||hinet.net^$removeparam=t,image,app=com.apple.mail|com.apple.mobilemail
+||hinet.net^$removeparam=v,image,app=com.apple.mail|com.apple.mobilemail
 
 ! ========== GitHub 郵件追蹤 ==========
 ||emails.github.com/trk?*
