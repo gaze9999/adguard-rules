@@ -33,6 +33,10 @@
 ||*/track/*beacon*$image
 ||*/beacon/*beacon*$image
 
+! ===== Microsoft / Azure SafeLink 郵件追蹤像素 =====
+||safelink.emails.azure.net/trackingpixel/*$image,third-party,important,app=com.apple.mail|com.apple.mobilemail
+||*.safelink.emails.azure.net/trackingpixel/*$image,third-party,important,app=com.apple.mail|com.apple.mobilemail
+
 ! ========== 帶param圖片 ==========
 *$removeparam=g,image,third-party,app=com.apple.mail|com.apple.mobilemail
 ! —— 可選（常見快取戳記；少數站點可能依賴）——
