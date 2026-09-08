@@ -1,11 +1,11 @@
 ! ================================
 ! Title: LINE App 廣告通用阻擋
 ! Description: 阻擋 LINE 應用程式內廣告，保留聊天功能並阻擋大部分廣告相關服務
-! Version: 1.2.4
+! Version: 1.2.5
 ! Author: Gazelle
 ! Homepage: https://github.com/gazelle/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-09-03T11:17:31.233Z
+! TimeUpdated: 2026-09-08T02:55:52.534Z
 ! ================================
 
 ! ===== LINE 官方廣告／量測 API =====
@@ -35,7 +35,7 @@
 @@||stickershop.line-scdn.net^
 
 ! ===== 錢包／支付頁廣告 =====
-||wallet-ad.line.me*$important
+||wallet-ad.line.me^$important
 ||linewallet.line.me/*/ads/*$important
 ||pay.line.me/*/ads/*$important
 ||bank.line.me/*/ads/*$important
@@ -106,11 +106,11 @@
 ||bypass.jp^$important
 ||logly.co.jp^$important
 ||rtbhouse.com^$important
-||adnow\.com^$important
+||adnow.com^$important
 ||admatic.jp^$important
 ||rakuten.co.jp/ads/*$important
 ||yahoo.co.jp/ads/*$important
-||amazon.co.jp/ads/\*$important
+||amazon.co.jp/ads/*$important
 ||smartnews-ads.com^$important
 ||adform.net^$important
 ||adsrvr.org^$important
