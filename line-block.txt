@@ -1,11 +1,11 @@
 ! ================================
 ! Title: LINE App 廣告通用阻擋
 ! Description: 阻擋 LINE 應用程式內廣告，保留聊天功能並阻擋大部分廣告相關服務
-! Version: 1.2.5
+! Version: 1.2.6
 ! Author: Gazelle
-! Homepage: https://github.com/gazelle/adguard-rules
+! Homepage: https://github.com/gaze9999/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-09-08T02:55:52.534Z
+! TimeUpdated: 2026-09-08T02:59:21.627Z
 ! ================================
 
 ! ===== LINE 官方廣告／量測 API =====
