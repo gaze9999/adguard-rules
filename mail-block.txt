@@ -1,11 +1,11 @@
 ! ============================================
 ! Title: 郵件／EDM 追蹤像素通用阻擋
 ! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
-! Version: 1.2.15
+! Version: 1.2.16
 ! Author: Gazelle
-! Homepage: https://github.com/gazelle/adguard-rules
+! Homepage: https://github.com/gaze9999/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-08-18T15:46:25.517Z
+! TimeUpdated: 2026-09-08T03:00:45.971Z
 ! ============================================
 
 ! ========== 行銷路徑通用追蹤端點 ==========
