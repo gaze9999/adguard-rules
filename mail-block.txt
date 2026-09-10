@@ -1,48 +1,94 @@
 ! ============================================
 ! Title: 郵件／EDM 追蹤像素通用阻擋
 ! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
-! Version: 1.2.16
+! Version: 1.3.0
 ! Author: Gazelle
 ! Homepage: https://github.com/gaze9999/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-09-08T03:00:45.971Z
+! TimeUpdated: 2026-09-10T02:48:37.000Z
 ! ============================================
 
-! ========== 行銷路徑通用追蹤端點 ==========
-||*/email/*open*$image
-||*/edm/*open*$image
-||*/mkt/*open*$image
-||*/marketing/*open*$image
-||*/newsletter/*open*$image
-||*/track/*open*$image
-||*/beacon/*open*$image
+! ========== 通用郵件追蹤端點 ==========
 
-||*/email/*pixel*$image
-||*/edm/*pixel*$image
-||*/mkt/*pixel*$image
-||*/marketing/*pixel*$image
-||*/newsletter/*pixel*$image
-||*/track/*pixel*$image
-||*/beacon/*pixel*$image
+! open
+/email/*open*$image
+%2Femail%2F*open$image
+/edm/*open*$image
+%2Fedm%2F*open$image
+/mkt/*open*$image
+%2Fmkt%2F*open$image
+/marketing/*open*$image
+%2Fmarketing%2F*open$image
+/newsletter/*open*$image
+%2Fnewsletter%2F*open$image
+/track/*open*$image
+%2Ftrack%2F*open$image
+/beacon/*open*$image
+%2Fbeacon%2F*open$image
 
-||*/email/*beacon*$image
-||*/edm/*beacon*$image
-||*/mkt/*beacon*$image
-||*/marketing/*beacon*$image
-||*/newsletter/*beacon*$image
-||*/track/*beacon*$image
-||*/beacon/*beacon*$image
+! pixel
+/email/*pixel*$image
+%2Femail%2F*pixel$image
+/edm/*pixel*$image
+%2Fedm%2F*pixel$image
+/mkt/*pixel*$image
+%2Fmkt%2F*pixel$image
+/marketing/*pixel*$image
+%2Fmarketing%2F*pixel$image
+/newsletter/*pixel*$image
+%2Fnewsletter%2F*pixel$image
+/track/*pixel*$image
+%2Ftrack%2F*pixel$image
+/beacon/*pixel*$image
+%2Fbeacon%2F*pixel$image
+
+! beacon
+/email/*beacon*$image
+%2Femail%2F*beacon$image
+/edm/*beacon*$image
+%2Fedm%2F*beacon$image
+/mkt/*beacon*$image
+%2Fmkt%2F*beacon$image
+/marketing/*beacon*$image
+%2Fmarketing%2F*beacon$image
+/newsletter/*beacon*$image
+%2Fnewsletter%2F*beacon$image
+/track/*beacon*$image
+%2Ftrack%2F*beacon$image
+/beacon/*beacon*$image
+%2Fbeacon%2F*beacon$image
+
+! 常見郵件追蹤 signature
+-track-email-open?$image
+/email-pixel?$image
+%2Femail-pixel%3F$image
+/email/open?$image
+%2Femail%2Fopen%3F$image
+/email/open/?pd=$image
+%2Femail%2Fopen%2F%3Fpd%3D$image
+/email_open_log_$image
+/emailopen?q=$image
+%2Femailopen%3Fq%3D$image
+/mail-tracking/*$image
+%2Fmail-tracking%2F$image
+/mailings/opened/*$image
+%2Fmailings%2Fopened%2F$image
+/MailIsRead?$image
+%2FMailIsRead%3F$image
+/open.aspx?$image
+%2Fopen.aspx%3F$image
+/track/open.php?$image
+%2Ftrack%2Fopen.php%3F$image
+/track/open/*$image
+%2Ftrack%2Fopen%2F$image
+/wf/open?upn=$image
+%2Fwf%2Fopen%3Fupn%3D$image
+/CI0/0$image
+%2FCI0%2F0$image
 
 ! ===== Microsoft / Azure SafeLink 郵件追蹤像素 =====
-||safelink.emails.azure.net/trackingpixel/*$image,third-party,important,app=com.apple.mail|com.apple.mobilemail
-||*.safelink.emails.azure.net/trackingpixel/*$image,third-party,important,app=com.apple.mail|com.apple.mobilemail
-
-! ========== 帶param圖片 ==========
-*$removeparam=g,image,third-party,app=com.apple.mail|com.apple.mobilemail
-! —— 可選（常見快取戳記；少數站點可能依賴）——
-! *$removeparam=t,image,third-party,app=com.apple.mail|com.apple.mobilemail
-! —— 謹慎選用（版本號常作資產版控；移除後偶見樣式或圖片不更新）——
-! *$removeparam=v,image,third-party,app=com.apple.mail|com.apple.mobilemail
+safelink.emails.azure.net/trackingpixel/*$image,important
+safelink.emails.azure.net%2Ftrackingpixel%2F$image,important
 
 ! ========== 其他網域追蹤 ==========
 ||emails.github.com/trk?*
@@ -57,32 +103,112 @@
 ||sparkpostmail.com/wf/open?*$image
 ||ymlpcl*.com/*footer.gif$image
 
-! ===== 常見關鍵字路徑（保守版）=====
-! 攔截常見追蹤路徑片段；僅作用於第三方導覽
-*/click?*$document,third-party,important
-*/track?*$document,third-party,important
-*/trk?*$document,third-party,important
-*/o/*$document,third-party,important
+! GitHub
+github.com/notifications/beacon/$image
+github.com%2Fnotifications%2Fbeacon%2F$image
 
-! ===== 例外：保留退訂／偏好連結（避免誤擋）=====
-@@||*/*unsubscribe*$document
-@@||*/*optout*$document
-@@||*/*email-preferences*$document
+! Amazon SES
+.awstrack.me/$image
+
+! Brevo / Sendinblue
+.sendibm1.com/mk/op/$image
+.sendibm1.com%2Fmk%2Fop%2F$image
+.sp1-brevo.net/mk/op/$image
+
+! MailChimp
+.list-manage.com/track/$image
+mailchimp.com/mctx/opens$image
+mailchimp.com%2Fmctx%2Fopens$image
+
+! SendGrid
+.ct.sendgrid.net/$image
+cdn.mcauto-images-production.sendgrid.net/*/1x1.gif$image
+cdn.mcauto-images-production.sendgrid.net%*%2F1x1.gif$image
+
+! Mandrill
+mandrillapp.com/track$image
+
+! SparkPost
+.sparkpostmail.com/q/$image
+.sparkpostmail1.com/q/$image
+.sparkpostmail2.com/q/$image
+
+! HubSpot
+t.hubspotemail.net/e2t/o$image
+hubspotlinks.com$image
+
+! Customer.io
+e.customeriomail.com$image
+track.customer.io$image
+
+! AWeber
+openrate.aweber.com$image
+
+! Yesware
+t.yesware.com/t/*$image
+
+! Boomerang
+mailstat.us/tr$image
+
+! Cirrus Insight
+tracking.cirrusinsight.com$image
+
+! ContactMonkey
+contactmonkey.com/api/v1/tracker$image
+
+! Streak
+mailfoogae.appspot.com/t^$image
+
+! MailTrack
+mailtrack.io/trace/$image
+mltrk.io/pixel$image
+
+! Postmark
+pstmrk.it/open$image
+
+! Superhuman
+r.superhuman.com$image
+
+! ConvertKit
+open.convertkit-mail*.com$image
+
+! NetHunt
+nethunt.com/api/v1/track/email/$image
+
+! Return Path / Validity
+pixel.app.returnpath.net$image
+pixel.monitor*.returnpath.net$image
+
+! Klaviyo
+.klclick.com/$image
+.klclick1.com/$image
+
+! Beehiiv
+link.mail.beehiiv.com/ss/*.gif$image
+
+! Substack
+.substack.com/o/$image
+.substackcdn.com/open?$image
+
+! Omnisend
+omni.soundestlink.com$image
+
+! Litmus
+emltrk.com$image
+
+! Mailjet
+.mjt.lu/oo/$image
 
 ! ========== 通用像素 ==========
 ||*/s.aspx?*$image
-||*/1x1.gif^$image
 ||*/1x1.png^$image
 ||*/clear.gif^$image
 ||*/clear.png^$image
 ||*/transp.gif^$image
-||*/transparent.gif^$image
 ||*/transparent.png^$image
 ||*/pixel.gif^$image
-||*/pixel.png^$image
 ||*/tracking.gif^$image
 ||*/tracking.png^$image
-||*/spacer.gif^$image
 ||*/spacer.png^$image
 ||*/tracker.gif^$image
 ||*/tracker.png^$image
@@ -92,6 +218,25 @@
 ||*/px.png^$image
 ||*/pix.gif^$image
 ||*/pix.png^$image
+
+! ========== 指定檔名 ==========
+! ||*/1x1.gif^$image
+! ||*/transparent.gif^$image
+! ||*/spacer.gif^$image
+! ||*/pixel.png^$image
+! ||*/1x1_usermatch.gif^$image
+! ||*/1x1_transparent.png^$image
+! ||*/p1x1.gif^$image
+! ||*/_track_pixel.gif^$image
+! ||*/event.gif^$image
+! ||*/o.gif^$image
+
+! ========== 小像素視覺隱藏 ==========
+##img[style*="height: 0"][style*="width: 0"]
+##img[style*="height: 1px"][style*="width: 1px"]
+##img[height^="0"][width^="0"]
+##img[height="1"][width="1"]
+##img[height="1px"][width="1px"]
 
 ! ========== CDN 通用追蹤端點 ==========
 ! Cloudfront
@@ -131,10 +276,14 @@
 ||images-*.ssl-images-amazon.com/images/G/01/nav/transp.gif$image
 ||amazon.co.jp/gp/r.html*$image
 ||amazon.com/gp/r.html*$image
+/gp/r.html?C=*&ref_=pe_*_open$image
+%2Fgp%2Fr.html%3FC%3D*%26ref_%3Dpe_*_open$image
 
 ! eBay
 ||rover.ebay.com/*1x1*$image
 ||p.ebaystatic.com/*/pixel*$image
+ebayadservices.com/marketingtracking/v1/impression?$image
+ebayadservices.com%2Fmarketingtracking%2Fv1%2Fimpression%3F$image
 
 ! Amazon JP
 ||images-na.ssl-images-amazon.com/images/G/09/nav/transp.gif$image
@@ -144,6 +293,8 @@
 ||emagazine.rakuten.co.jp/*open*$image
 ||r.r10s.jp/*/pixel*$image
 ||img.rakuten.co.jp/*/pixel*$image
+r.rakuten.co.jp/*.gif?mpe=$image
+r.rakuten.co.jp%2F*.gif%3Fmpe%3D$image
 
 ! Yahoo Shopping JP
 ||shopping.yahoo.co.jp/*/open*$image
@@ -157,6 +308,7 @@
 ! Mercari JP
 ||static.mercdn.net/*/pixel*$image
 ||assets.mercari.com/*/track*$image
+bmo.mercari.jp/?s$image
 
 ! Yodobashi JP
 ||yodobashi.com/*/pixel*$image
@@ -183,6 +335,7 @@
 ! 蝦皮購物 TW
 ||cf.shopee.tw/file/*/pixel*$image
 ||cf.shopee.tw/file/*/beacon*$image
+tracking.mail.shopee.$image
 
 ! 博客來 TW
 ||im1.book.com.tw/*/pixel*$image
@@ -232,6 +385,16 @@
 ! 富邦momo TW
 ||static.momoshop.com.tw/*/pixel*$image
 ||static.momoshop.com.tw/*/beacon*$image
+
+! ========== 台灣地區 EDM／行銷追蹤補強 ==========
+! Oracle / Eloqua
+email-ap.jll.com.tw$image
+eloqua.nissan.com.tw$image
+elqtrk.intel.com.tw$image
+
+! Criteo CNAME
+ybzcmz.momoshop.com.tw$image
+fufbgj.pazzo.com.tw$image
 
 ! ========== 台灣銀行 EDM 常見追蹤像素 ==========
 ! 台新銀行
@@ -331,6 +494,75 @@
 ||edm.citibank.com/*s.aspx?*$image
 ||edm.citibank.com/*open*$image
 ||edm.citibank.com/*pixel*$image
+
+! ========== 日本地區郵件追蹤補強 ==========
+! Cuenote
+.cuenote.jp/c/*.gif$image
+.cuenote.jp%2Fc%2F*.gif$image
+
+! BitCash
+ml.bitcash.co.jp/c/*$image
+ml.bitcash.co.jp%2Fc%2F$image
+
+! hm-f.jp
+hm-f.jp/ho.php?t=$image
+hm-f.jp%2Fho.php%3Ft%3D$image
+
+! s-pt.jp
+s-pt.jp/mail/info/*/img/_.gif$image
+s-pt.jp%2Fmail%2Finfo%2F*%2Fimg%2F_.gif$image
+
+! Monex
+mail01.monex.co.jp/bin/checker?$image
+mail01.monex.co.jp%2Fbin%2Fchecker%3F$image
+
+! 阪急阪神
+mailmag.hhcross.hankyu-hanshin.jp/c/*.gif$image
+mailmag.hhcross.hankyu-hanshin.jp%2Fc%2F*.gif$image
+
+! MOS
+cl.mos.jp/q/*$image
+cl.mos.jp%2Fq%2F$image
+
+! honto
+ck.m.honto.jp/c/*$image
+ck.m.honto.jp%2Fc%2F$image
+
+! animate
+cl.animate.co.jp/c/*$image
+cl.animate.co.jp%2Fc%2F$image
+
+! Melonbooks
+cl.melonbooks.co.jp$image
+
+! 松井証券
+mail-count.matsui.co.jp$image
+
+! bitbank
+email.bitbank.cc$image
+
+! 関西みらい銀行
+info.kansaimiraibank.co.jp/c/*.gif$image
+info.kansaimiraibank.co.jp%2Fc%2F*.gif$image
+
+! WILLAP
+willap.jp/t?r=$image
+willap.jp%2Ft%3Fr%3D$image
+
+! k3r
+b.k3r.jp/?a=$image
+b.k3r.jp%2F%3Fa%3D$image
+
+! JR おでかけ
+image.info.jr-odekake.net/lib/*$image
+image.info.jr-odekake.net%2Flib%2F$image
+
+! あおぞら銀行
+aozorabank.co.jp/r/*/open/$image
+aozorabank.co.jp%2Fr%2F*%2Fopen%2F$image
+
+! 住信SBIネット銀行
+cnt.mail.netbk.co.jp$image
 
 ! ========== 日本銀行 EDM 常見追蹤像素 ==========
 ! 三菱UFJ銀行
