@@ -1,11 +1,11 @@
 ! ================================
 ! Title: LINE App 廣告通用阻擋
 ! Description: 阻擋 LINE 應用程式內廣告，保留聊天功能並阻擋大部分廣告相關服務
-! Version: 1.2.7
+! Version: 1.2.8
 ! Author: Gazelle
 ! Homepage: https://github.com/gaze9999/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-09-10T01:47:18.000Z
+! TimeUpdated: 2026-09-10T01:58:16.000Z
 ! ================================
 
 ! ===== LINE 官方廣告／量測 API =====
@@ -29,13 +29,10 @@
 ||api.today.line.me/webapi/TW/recommendation/articles/articleend^$important
 
 ! ===== 對話／頭像／貼圖例外（避免誤擋）=====
-@@||obs.line-scdn.net/r^
-@@||obs*.line-apps.com/talk^
+@@||obs.line-scdn.net^
+@@||obs-tw.line-apps.com/talk^
 @@||profile.line-scdn.net^
 @@||stickershop.line-scdn.net^
-
-! ===== OBS 中已確認的非聊天廣告資源 =====
-||obs.line-scdn.net/r/linecrs/*$important
 
 ! ===== 錢包／支付頁廣告 =====
 ||wallet-ad.line.me^$important
