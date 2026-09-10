@@ -1,11 +1,11 @@
 ! ============================================
 ! Title: 郵件／EDM 追蹤像素通用阻擋
 ! Description: 封鎖電子郵件中的追蹤像素與開信行為追蹤
-! Version: 1.3.0
+! Version: 1.3.1
 ! Author: Gazelle
 ! Homepage: https://github.com/gaze9999/adguard-rules
 ! License: MIT
-! TimeUpdated: 2026-09-10T02:48:37.000Z
+! TimeUpdated: 2026-09-10T03:03:52.000Z
 ! ============================================
 
 ! ========== 通用郵件追蹤端點 ==========
@@ -91,9 +91,9 @@ safelink.emails.azure.net/trackingpixel/*$image,important
 safelink.emails.azure.net%2Ftrackingpixel%2F$image,important
 
 ! ========== 其他網域追蹤 ==========
-||emails.github.com/trk?*
+||emails.github.com/trk?*$image
 ||*.sendibm*.com/im/*?u=*$image
-||email.focusrite.com/e3t/*
+||email.focusrite.com/e3t/*$image
 
 ! 常見電子報平台追蹤像素
 ||list-manage.com/track/open.php?*$image
@@ -495,7 +495,7 @@ fufbgj.pazzo.com.tw$image
 ||edm.citibank.com/*open*$image
 ||edm.citibank.com/*pixel*$image
 
-! ========== 日本地區郵件追蹤補強 ==========
+! ========== 日本地區郵件追蹤 ==========
 ! Cuenote
 .cuenote.jp/c/*.gif$image
 .cuenote.jp%2Fc%2F*.gif$image
