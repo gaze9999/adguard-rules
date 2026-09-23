@@ -9,6 +9,7 @@
 ! ================================
 
 ! ===== LINE 官方廣告／量測 API =====
+||a.line.me^$important
 ||ads.line.me^$important
 ||ad.line.me^$important
 ||ad-api.line.me^$important
