@@ -1,4 +1,6 @@
-*.*
-!.gitignore
-!./*.txt
-!README.md
+# Publish root filter lists and their README only
+/*
+!/.gitignore
+!/*.txt
+!/README.md
+/*/
