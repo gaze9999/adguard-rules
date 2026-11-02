@@ -9,3 +9,7 @@
 - [郵件追蹤阻擋](https://raw.githubusercontent.com/gaze9999/adguard-rules/main/mail-block.txt): 針對郵件追蹤像素與開信追蹤
 
 在 AdGuard 的自訂過濾清單中加入所需清單的連結即可 如果遇到功能異常 可先暫停對應清單確認是否由規則造成
+
+## 公開內容檢查
+
+提交與推送前依 [公開內容檢查](docs/public-content.md) 設定 Git hooks, 執行暫存區與歷史檢查

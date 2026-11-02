@@ -4,3 +4,24 @@
 !/*.txt
 !/README.md
 /*/
+
+# Public publication guards; other local directories remain excluded
+!/.gitattributes
+!/.githooks/
+/.githooks/*
+!/.githooks/pre-commit
+!/.githooks/pre-push
+!/tools/
+/tools/*
+!/tools/check-public-content.py
+!/tests/
+/tests/*
+!/tests/test_public_content.py
+!/docs/
+/docs/*
+!/docs/public-content.md
+!/.github/
+/.github/*
+!/.github/workflows/
+/.github/workflows/*
+!/.github/workflows/public-content.yml
