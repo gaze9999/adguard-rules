@@ -3,6 +3,7 @@
 !/.gitignore
 !/*.txt
 !/README.md
+!/LICENSE
 /*/
 
 # Public publication guards; other local directories remain excluded
@@ -25,3 +26,6 @@
 !/.github/workflows/
 /.github/workflows/*
 !/.github/workflows/public-content.yml
+**/.claude/settings.local.json
+**/.codex/config.toml
+**/.codex/auth.json
